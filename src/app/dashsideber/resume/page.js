@@ -2,6 +2,8 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaPrint } from "react-icons/fa";
+import { usePDF } from "react-to-pdf";
 
 export default function Resume() {
   const [resumeData, setResumeData] = useState({});
@@ -27,11 +29,53 @@ export default function Resume() {
   useEffect(() => {
     fetchData();
   }, []);
+  const [loading, setLoading] = useState(false);
+
+  const { toPDF, targetRef } = usePDF(
+    {
+      filename: `${resumeData.contact.fristName}_CV.pdf`,
+    },
+    options,
+  );
+
+  const handleCvDownload = async () => {
+    setLoading(true);
+    try {
+      await toPDF();
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
+    <div className="flex justify-between items-center">
+
+<div></div>
+      
+<div className="w-100 flex flex-grow flex-col pb-3 items-end justify-start">
+          <div className="flex flex-row space-x-3">
+            {/* Follow Button */}
+            <button
+              onClick={() => handleDetailsDownload()}
+              className="flex rounded-md  px-5 py-2 text-"
+            >
+              {loading ? (
+                <div className="flex items-center gap-2">
+                  <p>Printing</p>
+                  <FaSpinner className="text-[25px] animate-spin text-secondary" />
+                </div>
+              ) : (
+                <FaPrint className="text-[#12284BB2]" size={25} />
+              )}
+            </button>
+          </div>
+        </div>
+    </div>
+
+
       {isLoading ? (
-        <div className="container mx-auto p-8 border-2 max-w-4xl">
+        <div ref={targetRef} className="container mx-auto p-8 border-2 max-w-4xl">
           <header className="text-center mb-8">
             <h1 className="text-4xl font-bold">
               {resumeData.contact.fristName} {resumeData.contact.surName}
