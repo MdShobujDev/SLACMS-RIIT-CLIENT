@@ -25,7 +25,7 @@ export default function Info() {
       try {
         const instituteInfoValues = { instituteInfo: values };
         const response = await axios.put(
-          `http://localhost:4000/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/instituteInfo`,
+          `https://slacms-riit-server-ashen.vercel.app/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/instituteInfo`,
           instituteInfoValues
         );
 

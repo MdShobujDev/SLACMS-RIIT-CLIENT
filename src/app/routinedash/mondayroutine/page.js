@@ -34,7 +34,7 @@ export default function Monday() {
       try {
         const Newperiods = { periods: values.periods };
         const response = await axios.put(
-          `http://localhost:4000/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/weeklyRoutine/monday`,
+          `https://slacms-riit-server-ashen.vercel.app/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/weeklyRoutine/monday`,
           Newperiods
         );
 

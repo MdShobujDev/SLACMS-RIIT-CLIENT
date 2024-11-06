@@ -29,7 +29,7 @@ export default function Info() {
       try {
         const classPeriodsValues = { classPeriods: values.classPeriods };
         const response = await axios.put(
-          `http://localhost:4000/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/classPeriods`,
+          `https://slacms-riit-server-ashen.vercel.app/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9/classPeriods`,
           classPeriodsValues
         );
         if (response.data.statusText === "ok") {

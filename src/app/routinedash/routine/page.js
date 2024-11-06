@@ -12,7 +12,7 @@ export default function Routine() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9"
+        "https://slacms-riit-server-ashen.vercel.app/api/routines/928d0f8b-3f29-4180-bfef-366571110ce9"
       );
 
       console.log(response.data);

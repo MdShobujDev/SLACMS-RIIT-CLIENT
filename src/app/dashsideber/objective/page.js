@@ -17,7 +17,7 @@ export default function Objective() {
       try {
         const objectValue = { object: values.object };
         const response = await axios.put(
-          `http://localhost:4000/api/resumes/6f02b2af-2228-4f88-a017-710ae6463b4e/object`,
+          `https://slacms-riit-server-ashen.vercel.app/api/resumes/6f02b2af-2228-4f88-a017-710ae6463b4e/object`,
           objectValue
         );
         console.log(objectValue);
